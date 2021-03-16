@@ -202,12 +202,15 @@
  *    limitations under the License.
  */
 
-package com.nimblecloud.core.api.option;
+package com.nimblecloud.core.api.data;
 
 /**
+ * 与数据库表相关
  * @author SortfGrowingup
  * @version 1.0
- * @date 2021/3/13 19:06
+ * @date 2021/3/16 12:59
  */
-public interface Update extends Option{
+public interface Table {
+    String tableName();
+
 }

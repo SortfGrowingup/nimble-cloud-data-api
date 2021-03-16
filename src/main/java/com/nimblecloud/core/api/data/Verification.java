@@ -202,12 +202,14 @@
  *    limitations under the License.
  */
 
-package com.nimblecloud.core.api.option;
+package com.nimblecloud.core.api.data;
 
 /**
+ * 数据校验相关
  * @author SortfGrowingup
  * @version 1.0
- * @date 2021/3/13 19:06
+ * @date 2021/3/16 13:01
  */
-public interface Update extends Option{
+public interface Verification {
+
 }

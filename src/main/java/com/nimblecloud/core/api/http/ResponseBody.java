@@ -212,8 +212,11 @@ import com.alibaba.fastjson.JSONObject;
  * @date 2021/3/13 19:08
  */
 public interface ResponseBody extends Body{
-    Body getBody();
     ResponseBody build();
+    Body getBody();
     void inPut(String k, Object v);
     ResponseBody inPutAll(JSONObject data);
+    default JSONObject bodyJSONObject(){
+        return getBody().bodyJSONObject();
+    }
 }

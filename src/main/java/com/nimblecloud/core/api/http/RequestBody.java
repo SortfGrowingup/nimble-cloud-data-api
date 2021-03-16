@@ -215,13 +215,8 @@ public interface RequestBody extends Head, Body{
     Head getHead();
     Body getBody();
 
-    @Override
-    default JSONObject bodyJSONObject(){
-        return getBody().bodyJSONObject();
-    }
+    default JSONObject bodyJSONObject(){ return getBody().bodyJSONObject(); }
 
     @Override
-    default JSONObject headJSONObject(){
-        return getHead().headJSONObject();
-    }
+    default JSONObject headJSONObject(){ return getHead().headJSONObject(); }
 }

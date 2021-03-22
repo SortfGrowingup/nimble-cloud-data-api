@@ -204,6 +204,7 @@
 
 package com.nimblecloud.core.api.option;
 
+import com.nimblecloud.core.api.http.RequestBody;
 import com.nimblecloud.core.api.http.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -215,5 +216,6 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2021/3/13 19:04
  */
 public interface After {
-    ResponseBody toAfter(ResponseBody data, HttpServletRequest req, HttpServletResponse res);
+    ResponseBody toAfter(RequestBody data);
+    ResponseBody toAfter(RequestBody data, HttpServletRequest req, HttpServletResponse res);
 }

@@ -204,6 +204,7 @@
 
 package com.nimblecloud.core.api.option;
 
+import com.nimblecloud.core.api.http.RequestBody;
 import com.nimblecloud.core.api.http.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
@@ -217,5 +218,9 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2021/3/13 19:04
  */
 public interface Option extends After, Before{
-    ResponseBody toOption(ResponseBody data, HttpServletRequest req, HttpServletResponse res);
+    String namespace();
+    ResponseBody toOption(RequestBody data);
+    ResponseBody toOption(RequestBody data, HttpServletRequest req, HttpServletResponse res);
+    ResponseBody toOptions(RequestBody data);
+    ResponseBody toOptions(RequestBody data, HttpServletRequest req, HttpServletResponse res);
 }

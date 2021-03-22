@@ -216,6 +216,6 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2021/3/13 19:05
  */
 public interface Before {
-    ResponseBody toBefore(RequestBody data);
+    boolean toBefore(RequestBody data);
     ResponseBody toBefore(RequestBody data, HttpServletRequest req, HttpServletResponse res);
 }

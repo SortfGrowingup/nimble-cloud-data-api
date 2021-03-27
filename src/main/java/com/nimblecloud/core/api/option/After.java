@@ -205,7 +205,6 @@
 package com.nimblecloud.core.api.option;
 
 import com.nimblecloud.core.api.http.RequestBody;
-import com.nimblecloud.core.api.http.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -216,6 +215,14 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2021/3/13 19:04
  */
 public interface After {
-    boolean toAfter(RequestBody data);
-    ResponseBody toAfter(RequestBody data, HttpServletRequest req, HttpServletResponse res);
+    /**
+     * 建议实现类强制实现此接口，用做请求前的数据校验逻辑
+     * @param data 请求数据
+     * @return boolean
+     */
+    default boolean toAfter(RequestBody data){
+        return false;
+    }
+
+    void toAfter(RequestBody data, HttpServletRequest req, HttpServletResponse res);
 }

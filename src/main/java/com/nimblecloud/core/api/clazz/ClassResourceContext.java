@@ -216,7 +216,7 @@ import java.util.Set;
  * @date 2021/3/20 10:19
  * @version 1.0
  */
-public interface ClassResourceContext {
+public interface ClassResourceContext{
 
     /**
      * 返回全部命名空间

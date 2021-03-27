@@ -205,8 +205,6 @@
 package com.nimblecloud.core.api.option;
 
 import com.nimblecloud.core.api.http.RequestBody;
-import com.nimblecloud.core.api.http.ResponseBody;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -221,31 +219,10 @@ public interface Option extends After, Before, Config{
     String namespace();
 
     /**
-     * 获取校验规则
-     * @return verification
-     */
-    Verification verification();
-
-    /**
-     * 设置校验规则
-     * @param verification 数据校验规则
-     */
-    void verification(Verification verification);
-
-    /**
      * 操作过程
      * @param data 请求数据
      * @param req 请求
      * @param res 响应
-     * @return ResponseBody
      */
-    ResponseBody toOption(RequestBody data, HttpServletRequest req, HttpServletResponse res);
-    /**
-     * 复杂操作过程
-     * @param data 请求数据
-     * @param req 请求
-     * @param res 响应
-     * @return ResponseBody
-     */
-    ResponseBody toOptions(RequestBody data, HttpServletRequest req, HttpServletResponse res);
+    void toOption(RequestBody data, HttpServletRequest req, HttpServletResponse res, OptionChain chain);
 }

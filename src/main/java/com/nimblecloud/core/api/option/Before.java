@@ -205,7 +205,6 @@
 package com.nimblecloud.core.api.option;
 
 import com.nimblecloud.core.api.http.RequestBody;
-import com.nimblecloud.core.api.http.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -216,6 +215,14 @@ import javax.servlet.http.HttpServletResponse;
  * @date 2021/3/13 19:05
  */
 public interface Before {
-    boolean toBefore(RequestBody data);
-    ResponseBody toBefore(RequestBody data, HttpServletRequest req, HttpServletResponse res);
+    /**
+     * 建议做强制实现
+     * @param data 请求数据
+     * @return boolean
+     */
+    default boolean toBefore(RequestBody data){
+        return false;
+    }
+
+    void toBefore(RequestBody data, HttpServletRequest req, HttpServletResponse res);
 }

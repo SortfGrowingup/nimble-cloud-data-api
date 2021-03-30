@@ -206,7 +206,6 @@ package com.nimblecloud.core.api.option;
 
 import com.nimblecloud.core.api.http.RequestBody;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -224,5 +223,5 @@ public interface Before {
         return false;
     }
 
-    void toBefore(RequestBody data, HttpServletRequest req, HttpServletResponse res);
+    void toBefore(RequestBody data, HttpServletResponse res);
 }

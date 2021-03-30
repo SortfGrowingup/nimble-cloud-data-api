@@ -207,7 +207,6 @@ package com.nimblecloud.core.api.option;
 import com.nimblecloud.core.api.http.RequestBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * @author SortfGrowingup
@@ -224,5 +223,5 @@ public interface After {
         return false;
     }
 
-    void toAfter(RequestBody data, HttpServletRequest req, HttpServletResponse res);
+    void toAfter(RequestBody data, HttpServletRequest req);
 }

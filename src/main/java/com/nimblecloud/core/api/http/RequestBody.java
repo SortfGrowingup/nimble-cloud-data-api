@@ -212,7 +212,16 @@ import com.alibaba.fastjson.JSONObject;
  * @date 2021/3/13 19:07
  */
 public interface RequestBody extends Head, Body{
+    /**
+     * 请求头封装
+     * @return head
+     */
     Head getHead();
+
+    /**
+     * 请求数据封装
+     * @return body
+     */
     Body getBody();
 
     default JSONObject bodyJSONObject(){ return getBody().bodyJSONObject(); }

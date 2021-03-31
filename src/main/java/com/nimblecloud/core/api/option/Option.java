@@ -215,7 +215,7 @@ import javax.servlet.http.HttpServletResponse;
  * @version 1.0
  * @date 2021/3/13 19:04
  */
-public interface Option extends After, Before, Config{
+public interface Option extends  Config{
     String namespace();
 
     /**

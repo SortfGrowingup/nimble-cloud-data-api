@@ -204,14 +204,12 @@
 
 package com.nimblecloud.core.api.http;
 
-import com.alibaba.fastjson.JSONObject;
-
 /**
  * @author SortfGrowingup
  * @version 1.0
  * @date 2021/3/13 19:07
  */
-public interface RequestBody extends Head, Body{
+public interface RequestBody{
     /**
      * 请求头封装
      * @return head
@@ -223,9 +221,4 @@ public interface RequestBody extends Head, Body{
      * @return body
      */
     Body getBody();
-
-    default JSONObject bodyJSONObject(){ return getBody().bodyJSONObject(); }
-
-    @Override
-    default JSONObject headJSONObject(){ return getHead().headJSONObject(); }
 }

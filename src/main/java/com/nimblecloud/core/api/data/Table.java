@@ -204,6 +204,9 @@
 
 package com.nimblecloud.core.api.data;
 
+import java.util.Map;
+import java.util.Set;
+
 /**
  * 与数据库表相关
  * @author SortfGrowingup
@@ -211,6 +214,21 @@ package com.nimblecloud.core.api.data;
  * @date 2021/3/16 12:59
  */
 public interface Table {
+    /**
+     * 获取表名
+     * @return str
+     */
     String tableName();
 
+    /**
+     * 获取当前表的所以字段
+     * @return fields
+     */
+    Set<String> fields();
+
+    /**
+     * k - field、 v-基础数据类型
+     * @return maps
+     */
+    Map<String, BaseType> mandatoryType();
 }

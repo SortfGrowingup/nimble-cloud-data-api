@@ -207,6 +207,7 @@ package com.nimblecloud.core.api.option;
 import com.nimblecloud.core.api.http.RequestBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
 
 /**
  * 抽象出来的操作接口，任何一个触发动作都可以被抽象成是一个操作，
@@ -219,10 +220,28 @@ public interface Option extends  Config{
     String namespace();
 
     /**
+     * 业务用来填充 jdbc，或者其它
+     * @param namespace 业务自己使用
+     * @param o 对象，业务自己强转类型
+     * @return 建议返回当前对象
+     */
+    Option fill(String namespace, Object o);
+
+    /**
+     * 操作的具体实现建议在此方法中进行，方便内部调用，
+     * 当然，如果涉及到读写分离的事务问题，建议还是在内部走rpc请求，
+     * 新的http请求，新的安全线程，新的事务，这个过程不会影响业务太多
+     * @param data 请求数据
+     * @param chain 响应
+     */
+    void toOption(RequestBody data, OptionChain chain);
+
+    /**
      * 操作过程
      * @param data 请求数据
      * @param req 请求
      * @param res 响应
+     * @param chain 链
      */
     void toOption(RequestBody data, HttpServletRequest req, HttpServletResponse res, OptionChain chain);
 }

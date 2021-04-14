@@ -9,7 +9,7 @@ import java.util.Map;
  * @date 2021/4/1 12:53
  */
 public interface OptionChainManage {
-    Map<String, Class<?>> chainManage();
-    Class<?> get(Object namespace);
-    Class<?> put(String namespace, Class<?> chain);
+    Map<String, OptionChain> chains();
+    OptionChain get(Object namespace);
+    void put(String namespace, OptionChain chain);
 }

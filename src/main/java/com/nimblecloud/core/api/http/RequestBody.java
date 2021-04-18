@@ -204,12 +204,19 @@
 
 package com.nimblecloud.core.api.http;
 
+import com.nimblecloud.core.api.option.Option;
+import com.nimblecloud.core.api.option.OptionChain;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.util.Map;
+
 /**
  * @author SortfGrowingup
  * @version 1.0
  * @date 2021/3/13 19:07
  */
-public interface RequestBody{
+public interface RequestBody {
     /**
      * 请求头封装
      * @return head
@@ -221,4 +228,39 @@ public interface RequestBody{
      * @return body
      */
     Body getBody();
+
+    Option getOption();
+
+
+    default RequestBody fill(String namespace, Object object) {
+        getOption().fill(namespace, object);
+        return this;
+    }
+
+    default RequestBody fill(String[] namespaces, Object[] objects) {
+        getOption().fill(namespaces, objects);
+        return this;
+    }
+
+    @Deprecated
+    default RequestBody fill(Map<String, Object> map) {
+        getOption().fill(map);
+        return this;
+    }
+
+    default void toOption(HttpServletRequest req, HttpServletResponse res){
+        toOption(req, res, null);
+    }
+
+    default void toOption() {
+        getOption().toOption(this);
+    }
+
+    default void toOption(OptionChain chain) {
+        getOption().toOption(this, chain);
+    }
+
+    default void toOption(HttpServletRequest req, HttpServletResponse res, OptionChain chain) {
+        getOption().toOption(this, req, res, chain);
+    }
 }

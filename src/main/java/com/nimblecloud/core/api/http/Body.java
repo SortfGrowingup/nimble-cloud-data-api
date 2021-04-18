@@ -204,7 +204,14 @@
 
 package com.nimblecloud.core.api.http;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.alibaba.fastjson.TypeReference;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Objects;
 
 /**
  *
@@ -214,7 +221,20 @@ import com.alibaba.fastjson.JSONObject;
  */
 public interface Body {
     JSONObject bodyJSONObject();
-    default String bodyJSONString(){
-        return bodyJSONObject().toJSONString();
+
+    default void result(JSONObject result){
+        List<JSONObject> results = result();
+        results.add(result);
+        result(results);
     }
+    default void result(List<JSONObject> results){
+        bodyJSONObject().put("result", results);
+    }
+    default List<JSONObject> result(){
+        String result = bodyJSONObject().getString("result");
+        if (Objects.isNull(result) || "".equals(result))return new ArrayList<>(1);
+
+        return JSON.parseObject(result, new TypeReference<List<JSONObject>>() {});
+    }
+    default String bodyJSONString(){ return bodyJSONObject().toJSONString(); }
 }

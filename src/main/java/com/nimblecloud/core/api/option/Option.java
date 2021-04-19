@@ -216,16 +216,33 @@ import java.util.Map;
  * @version 1.0
  * @date 2021/3/13 19:04
  */
-public interface Option extends  Config{
+public interface Option {
     String namespace();
+
+    Option fill(String namespace, Object object);
 
     /**
      * 业务用来填充 jdbc，或者其它
-     * @param namespace 业务自己使用
-     * @param o 对象，业务自己强转类型
-     * @return 建议返回当前对象
+     * k, v 对应上去即可， 不建议使用map的方式，
+     * @param namespaces 业务自己使用
+     * @param objects 对象，业务自己强转类型
+     * @return 返回当前对象
      */
-    Option fill(String namespace, Object o);
+    Option fill(String[] namespaces, Object[] objects);
+
+    /**
+     * 业务在请求前的填值，都可以放在这里进行实现
+     * @param params 填值，业务自己强转类型
+     * @return 返回当前对象
+     */
+    @Deprecated
+    Option fill(Map<String, Object> params);
+
+    /**
+     * 单纯的操作
+     * @param data 请求数据
+     */
+    void toOption(RequestBody data);
 
     /**
      * 操作的具体实现建议在此方法中进行，方便内部调用，

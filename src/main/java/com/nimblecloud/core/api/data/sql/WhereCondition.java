@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * where 条件接口类
  * @see Condition
- * @see Where
+ * @see WhereAnalysis
  * @author SortfGrowingup
  * @version 1.0
  * @date 2021/4/19 22:52

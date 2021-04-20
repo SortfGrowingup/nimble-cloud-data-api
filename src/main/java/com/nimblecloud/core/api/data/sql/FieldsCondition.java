@@ -8,6 +8,6 @@ import java.util.Collection;
  * @date 2021/4/20 12:37
  */
 @FunctionalInterface
-public interface FieldCondition {
+public interface FieldsCondition {
     Collection<String> getCondition();
 }

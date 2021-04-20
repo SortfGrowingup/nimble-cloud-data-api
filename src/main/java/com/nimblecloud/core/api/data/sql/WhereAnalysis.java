@@ -14,7 +14,7 @@ import java.util.Map;
  * @date 2021/4/17 20:03
  */
 @FunctionalInterface
-public interface Where {
+public interface WhereAnalysis {
 
     /**
      * 获取 sql 条件语句

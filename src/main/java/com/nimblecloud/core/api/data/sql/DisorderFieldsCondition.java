@@ -6,6 +6,6 @@ package com.nimblecloud.core.api.data.sql;
  * @version 1.0
  * @date 2021/4/20 12:37
  */
-public interface DisorderFieldCondition extends FieldCondition{
+public interface DisorderFieldsCondition extends FieldsCondition {
 
 }

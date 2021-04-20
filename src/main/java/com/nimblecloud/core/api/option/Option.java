@@ -261,4 +261,13 @@ public interface Option {
      * @param chain 链
      */
     void toOption(RequestBody data, HttpServletRequest req, HttpServletResponse res, OptionChain chain);
+
+    RequestBody getBody();
+    void setBody();
+    OptionChain getChain();
+    void setChain();
+    HttpServletRequest getReq();
+    void setReq();
+    HttpServletResponse Res();
+    void setRes();
 }

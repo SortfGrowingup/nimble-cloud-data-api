@@ -263,11 +263,11 @@ public interface Option {
     void toOption(RequestBody data, HttpServletRequest req, HttpServletResponse res, OptionChain chain);
 
     RequestBody getBody();
-    void setBody();
+    void setBody(RequestBody body);
     OptionChain getChain();
-    void setChain();
+    void setChain(OptionChain chain);
     HttpServletRequest getReq();
-    void setReq();
+    void setReq(HttpServletRequest req);
     HttpServletResponse Res();
-    void setRes();
+    void setRes(HttpServletResponse res);
 }

@@ -11,7 +11,7 @@ import java.util.UUID;
  * @date 2021/4/20 12:27
  */
 @FunctionalInterface
-public interface Field {
+public interface Fields {
 
     /**
      * 根据字段集合，来解析 SELECT [?] FROM 部分

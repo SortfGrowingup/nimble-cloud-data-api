@@ -268,6 +268,6 @@ public interface Option {
     void setChain(OptionChain chain);
     HttpServletRequest getReq();
     void setReq(HttpServletRequest req);
-    HttpServletResponse Res();
+    HttpServletResponse getRes();
     void setRes(HttpServletResponse res);
 }
